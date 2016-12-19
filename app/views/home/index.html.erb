@@ -1,15 +1,43 @@
-<% content_for :top_content do %>
-<% if user_signed_in? %>
-I like puppies.
-<% else %>
-<div class="jumbotron">
-  <div class="container">
-    <h1>Welcome!</h1>
-    <p>Register to get started.</p>
-    <p>
-      <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-    </p>
+<h1>This is the Home index file!</h1>
+
+    <a href="/new/">Add Trip!</a>
+
+    <br><br>
+    <br><br>
+    <br><br>
+
+
+  <div class="notVisited">
+    <h2>Sites To Visit</h2>
+
+
   </div>
-</div>
-<% end %>
-<% end %>
+
+  <br><br>
+
+  <div class="visited">
+  <h2>Sites Visited</h2>
+  </div>
+
+  <br><br>
+
+  <div class="test">
+    <h2>Testing</h2>
+      <% @users.each do |user| %>
+
+      <%= user["email"] %>
+
+      <a href="/show/">Show user details</a>
+
+      <br><br>
+
+
+      <br><br>
+
+      <% end %>
+  </div>
+
+
+    <br>
+    <br>
+
