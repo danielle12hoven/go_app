@@ -1,0 +1,16 @@
+<h1>This is the Trips index file</h1>
+
+
+
+
+<%= form_tag("/home/index", method: "post") do %>
+  <%= label_tag(:monument, "Search for:") %><br>
+  <%= text_field_tag(:monument) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+
+<br><br>
+
+</form>
