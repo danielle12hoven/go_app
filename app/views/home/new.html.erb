@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-<h1>This is the Trips index file</h1>
-
-
-
-
-<%= form_tag("/home", method: "post") do %>
-  <%= label_tag(:user, "Search for:") %><br>
-  <%= text_field_tag(:user) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
-
-
-<br><br>
-
-</form>
-=======
 <%= form_for :home, method: 'post', url: {action: 'create'} do |f| %>
   <%= label(:home, 'Search for a City') %><br>
   <%= f.text_field :city %>
@@ -24,8 +6,8 @@
 
 <% if @response != nil%>
   <% @response['results'].each do |res| %>
-<!-- deleted form for temporarily -->
-      <br><br>
+
+
       Name: <%= res['name'] %><br>
       Address: <%= res['formatted_address'] %><br>
       <% @string = res['photos']
@@ -44,4 +26,4 @@
     <% end %>
   <% end %>
 
->>>>>>> 37d6659479d2dcab4aea7fa2430354118a18da10
+
