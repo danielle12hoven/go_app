@@ -6,7 +6,7 @@
 
 <% if @response != nil%>
   <% @response['results'].each do |res| %>
-
+  <%= form_for :home, method: 'get', url: {action: "create"} do |f| %>
 
       Name: <%= res['name'] %><br>
       Address: <%= res['formatted_address'] %><br>
