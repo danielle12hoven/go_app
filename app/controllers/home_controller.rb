@@ -1,63 +1,38 @@
 class HomeController < ApplicationController
+  # This is where you could load a users trips/monuments when they log in
+  # if user_signed_in?
+    # get their id with the current_user method
+    # Then do @monuments/@trips = Trips.where (user.id = id etc etc)
 
   def index
     @monuments = Monument.all
   end
 
   def show
-<<<<<<< HEAD
-    @monument = User.find_by(id: params[:id])
-=======
-    @monument = Monument.find(params[:id])
->>>>>>> 37d6659479d2dcab4aea7fa2430354118a18da10
-  end
-
-  def create
-    home = params['home']
-    city = home['city']
-    @url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=monuments+in+"+city+"&key=AIzaSyAaTxKO83nQMSzEMq5T-WqU9thoXryHcaM"
-    @response = HTTParty.get(@url)
-    # mon_name = params[:mon][:monu]
-    # address = params[:mon][:address]
-    # pic = params[:mon][:pic]
-    # puts mon_name, address, pic
-    render 'new'
-  end
-  def new
-    @response
-  end
-  def update
-
-<<<<<<< HEAD
-  def create
-    User.create(name: params[:email],
-                  id: params[:id]
-                  )
-        # redirect_to "/home"
+    @monument = Monument.find_by(id: params[:id])
   end
 
 
-  def delete
-    User.delete(params[:id])
-  end
 
 
-  # def update
-  #     User.find_by(id: params[:id]).update(user_params)
-  #     # redirect_to "/home/"
-  # end
 
-  # def user_params
-  #   params.require(:user).permit(:id)
-  # end
+    def create
+      home = params['home']
+      city = home['city']
+      @url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=monuments+in+"+city+"&key=AIzaSyAaTxKO83nQMSzEMq5T-WqU9thoXryHcaM"
+      @response = HTTParty.get(@url)
+      mon_name = home['monu']
+      address = home['address']
+      pic = home['pic']
+      puts mon_name
+      puts address
+      puts pic
+      render 'new'
+    end
 
-  def edit
-    @user = User.find_by(id: params[:id])
-=======
->>>>>>> 37d6659479d2dcab4aea7fa2430354118a18da10
-  end
+    def new
+      @response
+    end
 
-  def destroy
-
-  end
+end
 

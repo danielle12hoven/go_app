@@ -4,9 +4,11 @@
   <%= f.submit "Search", class: 'btn btn-primary btn-sm'%><br><br>
 <% end %>
 
+
+
 <% if @response != nil%>
   <% @response['results'].each do |res| %>
-  <%= form_for :home, method: 'get', url: {action: "create"} do |f| %>
+  <%= form_for :home, method: 'get', url {action: "create"} do |f| %>
 
       Name: <%= res['name'] %><br>
       Address: <%= res['formatted_address'] %><br>
@@ -22,8 +24,14 @@
           @url = @front.to_s + @mid.to_s + @back.to_s
         %>
       Image: <br> <img src = <%= @url %> > <br>
-      <!-- deleted invisible form stuff temporarily -->
-    <% end %>
+      <%= f.hidden_field :monu, :value => res['name'] %>
+      <%= f.hidden_field :address, :value => res['formatted_address'] %>
+      <%= f.hidden_field :pic, :value => @url %>
+      <%= f.submit "Fav's", class: 'btn btn-primary btn-sm' %><br><br>
+<!--         <button id="saveButton">Save</button>
+ -->
+        <br><br>
   <% end %>
+<% end %>
 
-
+<% end %>
