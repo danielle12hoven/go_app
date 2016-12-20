@@ -8,8 +8,6 @@
 
 <% if @response != nil%>
   <% @response['results'].each do |res| %>
-  <%= form_for :home, method: 'get', url {action: "create"} do |f| %>
-
       Name: <%= res['name'] %><br>
       Address: <%= res['formatted_address'] %><br>
       <% @string = res['photos']
@@ -28,10 +26,9 @@
       <%= f.hidden_field :address, :value => res['formatted_address'] %>
       <%= f.hidden_field :pic, :value => @url %>
       <%= f.submit "Fav's", class: 'btn btn-primary btn-sm' %><br><br>
-<!--         <button id="saveButton">Save</button>
- -->
+
         <br><br>
   <% end %>
-<% end %>
+
 
 <% end %>

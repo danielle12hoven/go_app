@@ -5,11 +5,11 @@ class HomeController < ApplicationController
     # Then do @monuments/@trips = Trips.where (user.id = id etc etc)
 
   def index
-    @monuments = Monument.all
+    @users = User.all
   end
 
   def show
-    @monument = Monument.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
 
@@ -33,6 +33,26 @@ class HomeController < ApplicationController
     def new
       @response
     end
+
+  def delete
+    User.destroy(params[:id])
+    redirect_to "/home"
+  end
+
+
+  def update
+      User.find_by(id: params[:id]).update(user_params)
+      # redirect_to "/home/"+params[:id]
+  end
+
+  def user_params
+    params.require(:user).permit(:email)
+  end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
 
 end
 
