@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 
-gem 'httparty'
 
 gem 'jquery-turbolinks'
 gem 'devise'
