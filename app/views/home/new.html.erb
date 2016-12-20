@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>This is the Trips index file</h1>
 
 
@@ -14,3 +15,33 @@
 <br><br>
 
 </form>
+=======
+<%= form_for :home, method: 'post', url: {action: 'create'} do |f| %>
+  <%= label(:home, 'Search for a City') %><br>
+  <%= f.text_field :city %>
+  <%= f.submit "Search", class: 'btn btn-primary btn-sm'%><br><br>
+<% end %>
+
+<% if @response != nil%>
+  <% @response['results'].each do |res| %>
+<!-- deleted form for temporarily -->
+      <br><br>
+      Name: <%= res['name'] %><br>
+      Address: <%= res['formatted_address'] %><br>
+      <% @string = res['photos']
+          @string = @string.to_s
+          @sub = @string.gsub!(/.*?(?=e"=>)/im, "")
+          @sub = @sub.to_s.split(',')[0]
+          @sub = @sub.to_s.sub!(/^e/, '')
+          @sub = @sub.to_s.gsub!(/.*?(?=>")/im, "")
+          @mid = @sub.to_s[2..-2]
+          @front = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference="
+          @back = "&key=AIzaSyBSwXn_BJe18ejLsao-5RYPgkhVGKXuZAQ"
+          @url = @front.to_s + @mid.to_s + @back.to_s
+        %>
+      Image: <br> <img src = <%= @url %> > <br>
+      <!-- deleted invisible form stuff temporarily -->
+    <% end %>
+  <% end %>
+
+>>>>>>> 37d6659479d2dcab4aea7fa2430354118a18da10
