@@ -3,9 +3,9 @@
 
 
 
-<%= form_tag("/home/index", method: "post") do %>
-  <%= label_tag(:monument, "Search for:") %><br>
-  <%= text_field_tag(:monument) %>
+<%= form_tag("/home", method: "post") do %>
+  <%= label_tag(:user, "Search for:") %><br>
+  <%= text_field_tag(:user) %>
   <%= submit_tag("Search") %>
 <% end %>
 

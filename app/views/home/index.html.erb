@@ -1,19 +1,54 @@
+<!-- <container>
+
+   <div id="slideshow">
+      <div>
+       <img class="image" src="/../assets/images/eiffel.jpeg" alt="no image1">
+      </div>
+      <div>
+       <img class="image" src="/images/statueOfLiberty.jpeg" alt="no image2">
+      </div>
+    </div>
+
+  </container> -->
+
+
+
+
 <h1>This is the Home index file!</h1>
 
     <a href="/new/">Add Trip!</a>
 
     <br><br>
     <br><br>
-    <br><br>
 
 
   <div class="notVisited">
     <h2>Sites To Visit</h2>
+      <% @users.each do |user| %>
+        <%= user["email"] %>
 
+        <br><br>
+
+      <a href="/show/<%=['id']%>"">Show monument details</a>
+
+
+
+      <br>
+
+      <a href="/edit/">Edit Monument</a>
+
+      <br>
+
+      <%= button_to 'Remove', @user, method: :delete %>
+
+      <hr>
+
+      <br><br>
+
+  <% end %>
 
   </div>
 
-  <br><br>
 
   <div class="visited">
   <h2>Sites Visited</h2>
@@ -21,22 +56,16 @@
 
   <br><br>
 
-  <div class="test">
-    <h2>Testing</h2>
-      <% @users.each do |user| %>
-
-      <%= user["email"] %>
-
-      <a href="/show/">Show user details</a>
-
-      <br><br>
-
-
-      <br><br>
-
-      <% end %>
-  </div>
-
+<form action='/home' method='POST'>
+  <h2>Add Monument:</h2>
+  <label>Monument Name</label><br>
+    <input name='monument_name'><br>
+  <label>Address</label><br>
+    <input name='address'><br>
+  <label>Image</label><br>
+    <input name='image'><br>
+  <button>Submit</button>
+</form>
 
     <br>
     <br>

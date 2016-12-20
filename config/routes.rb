@@ -11,4 +11,9 @@ Rails.application.routes.draw do
 
   get'/show', to: 'home#show', as: :show
 
+
+  get'/edit', to: 'home#edit', as: :edit
+
+
+
 end

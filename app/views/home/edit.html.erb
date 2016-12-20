@@ -1,0 +1,13 @@
+<h1>Trip Editor</h1>
+
+<%= form_for current_user.email do |t| %>
+  <%= t.label :email %>:
+  <%= t.text_field :edit %><br /><br />
+  <%= t.submit :Save %>
+  <% end %>
+
+
+<br>
+
+
+<a href="/home">Home</a>
