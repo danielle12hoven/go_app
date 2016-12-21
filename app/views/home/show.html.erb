@@ -1,3 +1,22 @@
 
-Name: <%= @monument['monument_name'] %> <br>
-Address: <%= @monument['address'] %> <br><br>
+<%= label_tag(:monument_name) %> <br>
+<input type="" name="">
+<br>
+<%= label_tag(:address) %> <br>
+<input type="" name=""> <br><br>
+
+
+<%= check_box_tag(:visited) %>
+<%= label_tag(:visited, "visited") %>
+<%= check_box_tag(:not_visited) %>
+<%= label_tag(:not_visited, "not visited") %>
+<br>
+<%= text_area_tag(:message, "Info", size: "24x6") %>
+<br>
+<button>Save Changes</button>
+<br><br>
+
+
+
+
+<a href="/home">Home</a>

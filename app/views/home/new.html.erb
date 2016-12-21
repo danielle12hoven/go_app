@@ -18,9 +18,9 @@
           @sub = @sub.to_s.gsub!(/.*?(?=>")/im, "")
           @mid = @sub.to_s[2..-2]
           @front = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference="
-          @back = "&key=AIzaSyBSwXn_BJe18ejLsao-5RYPgkhVGKXuZAQ"
-          @url = @front.to_s + @mid.to_s + @back.to_s
-        %>
+         @back = "&key="+@otherkey
+         @url = @front.to_s + @mid.to_s + @back.to_s
+       %>
       Image: <br> <img src = <%= @url %> > <br>
       <%= f.hidden_field :name, :value => res['name'] %>
       <%= f.hidden_field :cityName, :value => @store_city %>

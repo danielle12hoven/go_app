@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   # if user_signed_in?
     # get their id with the current_user method
     # Then do @monuments/@trips = Trips.where (user.id = id etc etc)
+
     def index
       @monuments = Monument.all
     end
@@ -12,12 +13,14 @@ class HomeController < ApplicationController
     end
 
     def create
-      home = params['home']
-      @city = home['city']
-      if @city != nil
-        @url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=monuments+in+"+@city+"&key=AIzaSyBSwXn_BJe18ejLsao-5RYPgkhVGKXuZAQ"
-        @response = HTTParty.get(@url)
-        @store_city = @city
+     home = params['home']
+     @city = home['city']
+     if @city != nil
+       @key = ENV["google_places_1"]
+       @otherkey = ENV["google_places_2"]
+       @url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=monuments+in+"+@city+"&key="+@otherkey
+       @response = HTTParty.get(@url)
+       @store_city = @city
       else
         mon_name = home['name']
         address = home['address']
@@ -48,9 +51,17 @@ class HomeController < ApplicationController
       @response
     end
 
-    def update
+  def update
+      Monument.find_by(id: params[:id]).update(mon_params)
+  end
 
-    end
+  def mon_params
+    params.require(:monument).permit(:mon_name, :address)
+  end
+
+  def edit
+    @monument = Monument.find_by(id: params[:id])
+  end
 
     def destroy
       Monument.destroy(params['id'])
