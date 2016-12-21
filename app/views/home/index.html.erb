@@ -2,42 +2,6 @@
 <% if user_signed_in? %>
 
 <div class="container">
-<<<<<<< HEAD
-  <center><%= link_to 'Add More Advntures!', 'home/new', class: '
-  btn btn-default btn-lg' %> </center>
-</div>
-
-
-  <br>
-  <br>
-
-<div id="notVisited">
-<h3>Not Visited</h3>
-<% @users.each do |user| %>
-  Monument: <%= user["email"] %><br>
-
-
-  <br>
-  <br>
-  <a class="clickButton" href="/home/<%=user["id"]%>">View User Details</a>
-  <!-- test popup -->
-  <script type="text/javascript">
-    window.click('/home/<%=user["id"]%>', 'windowName', 'height=500,width=800');
-</script>
-<!-- test popup -->
-  <br>
-  <br>
-  <a href="/edit">EDIT</a>
-  <br>
-  <br>
-  <hr>
-  <% end %>
-
-
-<br>
-
-
-=======
   <center><%= link_to 'Add More Adventures!', 'home/new', class: 'btn btn-default btn-lg' %></center>
 </div>
 
@@ -82,6 +46,5 @@
     <!-- </div> -->
   </div>
 </div>
->>>>>>> 89e8eb47481fc9d76c82d24ad6297e88ef1e9499
 <% end %>
 <% end %>
