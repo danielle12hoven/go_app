@@ -13,9 +13,6 @@ class HomeController < ApplicationController
   end
 
 
-
-
-
     def create
       home = params['home']
       city = home['city']

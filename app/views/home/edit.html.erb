@@ -2,9 +2,10 @@
 
 <%= form_for current_user.email do |t| %>
   <%= t.label :email %>:
-  <%= t.message :edit %><br /><br />
   <%= t.submit :Save %>
   <% end %>
+
+<input type="text" id="post_title" name="post[title]" size="20"/>
 
 
 <br>

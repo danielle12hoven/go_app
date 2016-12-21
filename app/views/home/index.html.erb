@@ -18,7 +18,12 @@
 
   <br>
   <br>
-  <a href="/home/<%=user["id"]%>">View User Details</a>
+  <a class="clickButton" href="/home/<%=user["id"]%>">View User Details</a>
+  <!-- test popup -->
+  <script type="text/javascript">
+    window.click('/home/<%=user["id"]%>', 'windowName', 'height=500,width=800');
+</script>
+<!-- test popup -->
   <br>
   <br>
   <a href="/edit">EDIT</a>
@@ -26,7 +31,9 @@
   <br>
   <hr>
   <% end %>
-</div>
+
+
+<br>
 
 
 <% end %>
