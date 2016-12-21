@@ -2,7 +2,7 @@
 
 <%= form_for current_user.email do |t| %>
   <%= t.label :email %>:
-  <%= t.text_field :edit %><br /><br />
+  <%= t.message :edit %><br /><br />
   <%= t.submit :Save %>
   <% end %>
 

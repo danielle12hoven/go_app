@@ -34,7 +34,7 @@ class HomeController < ApplicationController
       @response
     end
 
-  def delete
+  def destroy
     User.destroy(params[:id])
     redirect_to "/home"
   end

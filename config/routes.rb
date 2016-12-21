@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   get'/edit', to: 'home#edit', as: :edit
 
+
+
 end

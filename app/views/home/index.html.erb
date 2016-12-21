@@ -1,9 +1,10 @@
-<nav id="nav-bar">
+<% content_for :top_content do %>
+<% if user_signed_in? %>
 
-    <a href="/home/new">New</a>
-
-</nav>
-
+<div class="container">
+  <center><%= link_to 'Add More Advntures!', 'home/new', class: '
+  btn btn-default btn-lg' %> </center>
+</div>
 
 
   <br>
@@ -12,8 +13,7 @@
 <div id="notVisited">
 <h3>Not Visited</h3>
 <% @users.each do |user| %>
-  Email: <%= user["email"] %><br>
-  Id: <%= user["id"] %>
+  Monument: <%= user["email"] %><br>
 
 
   <br>
@@ -21,34 +21,13 @@
   <a href="/home/<%=user["id"]%>">View User Details</a>
   <br>
   <br>
-  <br>
-  <br>
-  <%= button_to 'delete', @user, method: :destroy %><br>
   <a href="/edit">EDIT</a>
+  <br>
+  <br>
   <hr>
   <% end %>
 </div>
 
 
-
-<div id="visited">
-<h3>Visited</h3>
-<% @users.each do |user| %>
-  Monument: <%= user["email"] %>
-  Address: <%= user["id"] %>
-
-  <br>
-  <br>
-  <a href="/home/<%=['id']%>">View User Details</a>
-  <br>
-  <br>
-  <br>
-  <%= button_to 'delete', @user, method: :destroy %><br>
-  <br>
-  <hr>
-  <% end %>
-
-</div>
-
-
-
+<% end %>
+<% end %>
